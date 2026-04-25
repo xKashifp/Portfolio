@@ -214,7 +214,10 @@
     .hero-video-wrap {
       position: absolute;
       inset: 0;
+      width: 100%;
+      height: 100%;
       z-index: 0;
+      background-color: var(--black);
     }
 
     .hero-video-wrap video {
@@ -222,6 +225,7 @@
       height: 100%;
       object-fit: cover;
       opacity: .55;
+      pointer-events: none;
     }
 
     /* Vignette + scanlines */
@@ -1401,7 +1405,9 @@
       /* Hero */
       #hero {
         padding: 0 20px 48px;
-        min-height: 100svh;
+        height: 100vh; /* fallback */
+        height: 100dvh;
+        min-height: 550px;
       }
 
       .hero-top {
@@ -1673,7 +1679,7 @@
 ════════════════════════════════ -->
   <section id="hero">
     <div class="hero-video-wrap">
-      <video autoplay muted loop playsinline>
+      <video autoplay muted loop playsinline webkit-playsinline preload="auto">
         <source src="Timeline.mp4" type="video/mp4">
       </video>
     </div>
